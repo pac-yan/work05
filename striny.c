@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-char* my_strncpy(char* destination, char* target){
-	char * index;
-	for(index = destination; *target != '\0'; index++){
-		*index = *target;
-		target++;
+char* mystrncpy(char* destination, char* target,int amount){
+	int index;
+	for(index = 0; index < amount; index++){
+		destination[index] = target[index];
 	}
-	*index = *target;
+	destination[index] = '\0';
 	return destination;
 }
 int mystrlen(char *str){
@@ -24,4 +23,14 @@ int main(){
   printf("str1 is: \"%s\"\n", str1);//should print magic
   printf("true len of str1 is: %d\n", strlen(str1));
   printf("mylength of str1 is: %d\n", mystrlen(str1));//should return five
+  printf("\n");
+
+  char str2[] = "fish";
+  char str3[5];
+  printf("str2 is: \"%s\"\n",str2);//should print fish
+  printf("char str3[5];\n");
+  printf("default strncpy(str3, str2, 3): \"%s\"\n",strncpy(str3, str2, 3));
+  char str4[5];
+  printf("char str4[5];\n");
+  printf("mystrncpy(str4, str2, 3): \"%s\"\n", mystrncpy(str4, str2, 3)); //should return "fis"
 }
