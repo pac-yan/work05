@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-char* my_strncpy(char* destination, char* target){
-	char * index;
-	for(index = destination; *target != '\0'; index++){
-		*index = *target;
-		target++;
+char* mystrncpy(char* destination, char* target,int amount){
+	int index;
+	for(index = 0; index < amount; index++){
+		destination[index] = target[index];
 	}
-	*index = *target;
+	destination[index] = '\0';
 	return destination;
 }
 int mystrlen(char *str){
@@ -38,16 +37,27 @@ char mystrcat(char *dest, char *add) {
 
 
 int main(){
-  printf("strlen tests: \n");
-  char strlen1[] = "magic";
-  printf("str1 is: \"%s\"\n", strlen1);//should print magic
-  printf("true len of str1 is: %d\n", strlen(strlen1));
-  printf("mylength of str1 is: %d\n", mystrlen(strlen1));//should return five
-  printf("strcat test: \n");
+
+  char str1[] = "magic";
+  printf("str1 is: \"%s\"\n", str1);//should print magic
+  printf("true len of str1 is: %d\n", strlen(str1));
+  printf("mylength of str1 is: %d\n", mystrlen(str1));//should return five
+  printf("\n");
+
   char strcat1[] = "hi";
   char strcat2[] = " there";
   printf("str1 is: \"%s\"\n", strcat1);//should print "hi"
   printf("str1 is: \"%s\"\n", strcat2);//should print "there"
   printf("true cat of str1 is: \"%s\"\n", strcat(strcat1, strcat2));
   printf("mycat is: \"%s\"\n", mystrcat(strcat1, strcat2));//should return "hi there"
+  
+  char str2[] = "fish";
+  char str3[5];
+  printf("str2 is: \"%s\"\n",str2);//should print fish
+  printf("char str3[5];\n");
+  printf("default strncpy(str3, str2, 3): \"%s\"\n",strncpy(str3, str2, 3));
+  char str4[5];
+  printf("char str4[5];\n");
+  printf("mystrncpy(str4, str2, 3): \"%s\"\n", mystrncpy(str4, str2, 3)); //should return "fis"
+
 }
