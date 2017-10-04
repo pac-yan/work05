@@ -18,6 +18,27 @@ int mystrlen(char *str){
     }
     return(len);
 }
+int mystrcmp(char* a,char* b){
+    while(*a && *b){
+        if(*a < *b){
+            return -1;
+        }
+        else if(*a > *b){
+            return 1;
+        }
+        a++;
+        b++;
+    }
+    if(!*a && !*b){
+        return 0;
+    }
+    else if(*a){
+        return -1;
+    }
+    else{
+        return 1;
+    }
+}
 int main(){
   char str1[] = "magic";
   printf("str1 is: \"%s\"\n", str1);//should print magic
@@ -33,4 +54,11 @@ int main(){
   char str4[5];
   printf("char str4[5];\n");
   printf("mystrncpy(str4, str2, 3): \"%s\"\n", mystrncpy(str4, str2, 3)); //should return "fis"
+
+  char str5[] = "aaa";
+  char str6[] = "bbb";
+  printf("str5 is \"aaa\"\n");
+  printf("str6 is \"bbb\"\n");
+  printf("default strcmp(str5,str6) is: %d\n",strcmp(str5,str6));
+  printf("mystrcmp(str5,str6) is : %d\n",mystrcmp(str5,str6));
 }
