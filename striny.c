@@ -37,7 +37,7 @@ char mystrcat(char *dest, char *add) {
 
 
 int main(){
-
+  
   char str1[] = "magic";
   printf("str1 is: \"%s\"\n", str1);//should print magic
   printf("true len of str1 is: %d\n", strlen(str1));
