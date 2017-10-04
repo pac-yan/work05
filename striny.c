@@ -39,6 +39,20 @@ int mystrcmp(char* a,char* b){
         return 1;
     }
 }
+char * mystrchr(char*s,char c){
+    while(*s){
+        if(*s == c){
+            return s;
+        }
+        else{
+            s++;
+        }
+    }
+    if(*s == c){
+        return s;
+    }
+    return NULL;
+}
 int main(){
   char str1[] = "magic";
   printf("str1 is: \"%s\"\n", str1);//should print magic
@@ -61,4 +75,11 @@ int main(){
   printf("str6 is \"bbb\"\n");
   printf("default strcmp(str5,str6) is: %d\n",strcmp(str5,str6));
   printf("mystrcmp(str5,str6) is : %d\n",mystrcmp(str5,str6));
+
+  char str7[] = "abcde";
+  char c = 'c';
+  printf("str7 is %s\n",str7);
+  printf("c is %c\n",c);
+  printf("default strchr(str7,c) is: %p\n",strchr(str7,c));
+  printf("mystrchr(str7,c) is: %p\n",mystrchr(str7,c));
 }
