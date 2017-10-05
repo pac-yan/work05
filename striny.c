@@ -54,18 +54,18 @@ char * mystrchr(char*s,char c){
     return NULL;
 }
 char* mystrcat(char *dest, char *add) {
+  //printf("%s\n%s\n",dest,add);
   int x = 0;
   char retstr[strlen(dest) + strlen(add) + 1]; 
   for(x = 0; x < strlen(dest); x ++) {
-    retstr[x] = dest[x];      
+    retstr[x] = dest[x];
   }
-  int i = x;
-  int z = 0;
-  for(i; i < strlen(retstr); i ++) {
-    for(z; z < strlen(add); z ++){
-      retstr[i] = add[z]; 
-    }
+  int i;
+  int len = strlen(add);
+  for(i = 0;i < len;i++){
+    retstr[x++] = add[i];
   }
+  retstr[x] = '\0';
   return retstr;  
 }
 
@@ -83,7 +83,7 @@ int main(){
   printf("str1 is: \"%s\"\n", strcat1);//should print "hi"
   printf("str1 is: \"%s\"\n", strcat2);//should print "there"
   printf("true cat of str1 is: \"%s\"\n", strcat(strcat1, strcat2));
-  printf("mycat is: \"%s\"\n", mystrcat(strcat1, strcat2));//should return "hi there"
+  printf("mycat is: \"%s\"\n", mystrcat(strcat1, strcat2));//should return "hi there there"
   
   char str2[] = "fish";
   char str3[5];
